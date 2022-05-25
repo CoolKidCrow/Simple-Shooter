@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    CharacterController controller;
     public float health;
     public float maxHealth;
     public float timeTillRegen;
@@ -17,13 +16,13 @@ public class Health : MonoBehaviour
     void Start()
     {
         respawns = GameObject.FindGameObjectsWithTag("Respawn");
-        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "Health: " + health;
+        if(healthText != null)
+            healthText.text = "Health: " + health;
 
         if(Input.GetKeyDown(KeyCode.K))
             DealDamage(50f);
@@ -38,9 +37,7 @@ public class Health : MonoBehaviour
     private void Respawn()
     {
         health = 200f;
-        controller.enabled = false;
         transform.position = respawns[Random.Range(0, respawns.Length)].transform.position;
-        controller.enabled = true;
     }
 
     void FixedUpdate()

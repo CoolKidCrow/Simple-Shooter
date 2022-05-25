@@ -5,6 +5,7 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     public Camera cam;
+    public Collider self;
     public LayerMask bulletMask;
     public int currentAmmo;
     public int maxAmmo;
@@ -87,7 +88,7 @@ public class GunController : MonoBehaviour
         if(lightIndex == lights.Length)
             lightIndex = 0;
         StartCoroutine("MuzzleFlash", lights[lightIndex++]);
-        if(rayHit.collider != null)
+        if(rayHit.collider != null && rayHit.collider != self)
         {
             rayHit.collider.gameObject.SendMessage("DealDamage", damage, SendMessageOptions.DontRequireReceiver);
             Debug.DrawLine(cam.transform.position, rayHit.point, Color.red, 5f);
