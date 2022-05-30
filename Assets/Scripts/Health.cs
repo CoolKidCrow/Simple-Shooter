@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
 
-public class Health : MonoBehaviour
+public class Health : NetworkBehaviour
 {
     public float health;
     public float maxHealth;
@@ -23,9 +24,6 @@ public class Health : MonoBehaviour
     {
         if(healthText != null)
             healthText.text = "Health: " + health;
-
-        if(Input.GetKeyDown(KeyCode.K))
-            DealDamage(50f);
 
         if (timeSinceHit < timeTillRegen)
             timeSinceHit += Time.deltaTime;

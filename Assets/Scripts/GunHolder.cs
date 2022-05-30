@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
 
-public class GunHolder : MonoBehaviour
+public class GunHolder : NetworkBehaviour
 {
     public GameObject activeGun;
     public GameObject[] guns;

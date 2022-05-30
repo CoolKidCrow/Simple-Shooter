@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class GunController : MonoBehaviour
+public class GunController : NetworkBehaviour
 {
     public Camera cam;
     public Collider self;

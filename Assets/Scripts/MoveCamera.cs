@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class MoveCamera : MonoBehaviour
+public class MoveCamera : NetworkBehaviour
 {
     [SerializeField] Transform cameraPosition;
 
